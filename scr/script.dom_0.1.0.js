@@ -2,6 +2,11 @@
 
     'use strict';
 
+    /**
+     *
+     * @param selector
+     * @returns {*}
+     */
     var dom = function(selector){
 
         if (!(this instanceof Dom)) return new Dom(selector);
@@ -67,12 +72,18 @@
      * @returns {proto}
      */
     proto.first = function (){
-        if(this.elements.length == 0) return;
-        var elem = this.elements[0].firstChild;
-        if(elem) {
-            while(elem && elem.nodeType !== Node.ELEMENT_NODE)
-                elem = elem.nextSibling;
-        }
+        if(this.elements.length == 0) return this;
+        var elem = [];
+        try{
+            this.elements.map(function(item){
+                var finds = item.firstChild;
+                if(finds) {
+                    while(finds && finds.nodeType !== Node.ELEMENT_NODE)
+                        finds = finds.nextSibling;
+                }
+                elem.push(finds);
+            });
+        }catch(e){}
         this._elementsOptions(null, elem);
         return this;
     };
@@ -84,12 +95,18 @@
      * @returns {proto}
      */
     proto.last = function (){
-        if(this.elements.length == 0) return;
-        var elem = this.elements[0].lastChild;
-        if(elem) {
-            while(elem && elem.nodeType !== Node.ELEMENT_NODE)
-                elem = elem.previousSibling;
-        }
+        if(this.elements.length == 0) return this;
+        var elem = [];
+        try{
+            this.elements.map(function(item){
+                var finds = item.lastChild;
+                if(finds) {
+                    while(finds && finds.nodeType !== Node.ELEMENT_NODE)
+                        finds = finds.previousSibling;
+                }
+                elem.push(finds);
+            });
+        }catch(e){}
         this._elementsOptions(null, elem);
         return this;
     };
@@ -101,12 +118,18 @@
      * @returns {proto}
      */
     proto.next = function (){
-        if(this.elements.length == 0) return;
-        var elem = this.elements[0].nextSibling;
-        if(elem) {
-            while(elem.nodeType !== Node.ELEMENT_NODE)
-                elem = elem.nextSibling;
-        }
+        if(this.elements.length == 0) return this;
+        var elem = [];
+        try{
+            this.elements.map(function(item){
+                var find = item.nextSibling;
+                if(find) {
+                    while(find.nodeType !== Node.ELEMENT_NODE)
+                        find = find.nextSibling;
+                }
+                elem.push(find);
+            });
+        }catch(e){}
         this._elementsOptions(null, elem);
         return this;
     };
@@ -118,26 +141,46 @@
      * @returns {proto}
      */
     proto.prev = function (){
-        if(this.elements.length == 0) return;
-        var elem = this.elements[0].previousSibling;
-        if(elem) {
-            while(elem.nodeType !== Node.ELEMENT_NODE)
-                elem = elem.previousSibling;
-        }
+        if(this.elements.length == 0) return this;
+        var elem = [];
+        try{
+            this.elements.map(function(item){
+                var find = item.previousSibling;
+                if(find) {
+                    while(find.nodeType !== Node.ELEMENT_NODE)
+                        find = find.previousSibling;
+                }
+                elem.push(find);
+            });
+        }catch(e){}
         this._elementsOptions(null, elem);
         return this;
     };
 
     proto.children = function (){
-        if(this.elements.length == 0) return;
-        var elem = this.elements[0].children;
+        if(this.elements.length == 0) return this;
+        var elem = [];
+        try{
+            this.elements.map(function(item){
+                var finds = item.children;
+                if(finds) {
+                    elem = elem.concat([].slice.call(finds));
+                }
+            });
+        }catch(e){}
         this._elementsOptions(null, elem);
         return this;
     };
 
     proto.parent = function (){
         if(this.elements.length == 0) return;
-        var elem = this.elements[0].parentNode;
+        var elem = [];
+        try{
+            this.elements.map(function(item){
+                var finds = item.parentNode;
+                elem.push(finds);
+            });
+        }catch(e){}
         this._elementsOptions(null, elem);
         return this;
     };
@@ -162,8 +205,14 @@
         if(this.elements.length == 0) return;
         if(param == undefined)
             return this.elements[0].textContent;
-        else
-            this.elements[0].textContent = param;
+        else{
+            try{
+                this.elements.map(function(elem){
+                    elem.textContent = param;
+                });
+            }catch(e){}
+        }
+
 
         return this;
     };
@@ -172,8 +221,14 @@
         if(this.elements.length == 0) return;
         if(param == undefined)
             return this.elements[0].innerHTML;
-        else
-            this.elements[0].innerHTML = param;
+        else{
+            try{
+                this.elements.map(function(elem){
+                    elem.innerHTML = param;
+                });
+            }catch(e){}
+        }
+
 
         return this;
     };

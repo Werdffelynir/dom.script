@@ -27,8 +27,25 @@
             <li>menu 1</li>
             <li>menu 2</li>
             <li>menu 3</li>
+            <li class="simp">menu 4</li>
+            <li>menu 5</li>
+            <li>menu 6</li>
+            <li>menu 7</li>
+        </ul>
+        <ul>
+            <li>menu 1</li>
+            <li class="simp">menu 2</li>
+            <li>menu 3</li>
             <li>menu 4</li>
             <li>menu 5</li>
+            <li>menu 6</li>
+        </ul>
+        <ul>
+            <li>menu 1</li>
+            <li>menu 2</li>
+            <li>menu 3</li>
+            <li>menu 4</li>
+            <li class="simp">menu 5</li>
             <li>menu 6</li>
         </ul>
     </div>
@@ -57,9 +74,9 @@
 
 <script type="text/javascript">
 
-    var domPage = Dom('#page');
+    var simp = Dom('.simp').html('consectetur <b>adipisicing</b> elit!');
 
-    domPage.find('#menu ul').css('border','3px solid #000');
+    console.log(simp);
 
 
 
