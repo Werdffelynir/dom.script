@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test JS</title>
+    <script src="scr/script.dom_0.1.0.js"></script>
+	<style rel="stylesheet">
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        html, body{}
+        #page{width: 860px;margin: 0 auto}
+        #header{}
+        #menu{}
+        #content{}
+        #footer{}
+	</style>
+</head>
+<body>
+
+<div id="page">
+
+    <div id="header">
+        <h2>Test JS <per>script.dom_0.1.0.js</per></h2>
+    </div>
+
+    <div id="menu">
+        <ul>
+            <li>menu 1</li>
+            <li>menu 2</li>
+            <li>menu 3</li>
+            <li>menu 4</li>
+            <li>menu 5</li>
+            <li>menu 6</li>
+        </ul>
+    </div>
+
+    <div id="content">
+        <h1>Ad alias architecto asperiores corporis</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A asperiores autem doloremque, enim eum ex ipsum
+            libero magni mollitia nostrum praesentium reiciendis repellendus temporibus totam vero? Corporis
+            necessitatibus omnis ratione.</p>
+        <p>Cumque delectus deserunt dignissimos dolor exercitationem illum nisi praesentium rerum totam? Adipisci
+            blanditiis dicta distinctio dolorum eaque enim eos error ipsum magnam maiores numquam officiis omnis quam
+            ratione, similique veritatis?</p>
+        <p>Ad alias architecto asperiores corporis, dolor et eum facere illo mollitia quam quos sequi veniam? Ab
+            accusantium aliquid, cum debitis deserunt doloremque dolorum eos eveniet nostrum optio, quam rerum
+            tempore!</p>
+        <p>Debitis impedit, tenetur. Accusamus consequatur consequuntur corporis dolore est et ex expedita facere fuga
+            impedit in, ipsa ipsum libero necessitatibus neque odio provident rem soluta tempore ullam vel veritatis
+            voluptatibus.</p>
+        <p>Architecto dolores et eum expedita facere fugiat, harum libero nam, nisi quasi repellat sed vel! Corporis
+            culpa harum maxime nihil, perspiciatis quo quos repudiandae rerum sint, sunt suscipit temporibus. Nam.</p>
+    </div>
+
+    <div id="footer"> footer @ 2015 footer</div>
+
+</div>
+
+<script type="text/javascript">
+
+    var domPage = Dom('#page');
+
+    domPage.find('#menu ul').css('border','3px solid #000');
+
+
+
+</script>
+</body>
+</html>
