@@ -254,7 +254,6 @@
         return this;
     };
 
-
     proto.each = function (func){
         if(this.elements.length == 0) return;
         var self = this;
@@ -300,13 +299,12 @@
         return elem;
     };
 
-
     /**
      * Execute callback function if DOM is loaded
      * @param callback
      */
-    proto.documentLoaded = function(callback){
-        if(this.documentIsLoaded()){
+    dom.loaded = function(callback){
+        if(dom.isLoaded()){
             callback();
         }else{
             document.addEventListener('DOMContentLoaded', callback, false);
@@ -317,8 +315,8 @@
      * Check an DOM is loaded
      * @returns {boolean}
      */
-    proto.documentIsLoaded = function(){
-        return !!this.query('body');
+    dom.isLoaded = function(){
+        return proto.query('body').length > 0;
     };
 
     dom.prototype = proto;

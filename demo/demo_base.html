@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Test JS</title>
-    <script src="scr/script.dom_0.1.0.js"></script>
+    <script src="../scr/script.dom.js"></script>
 	<style rel="stylesheet">
         *{margin: 0;padding: 0;box-sizing: border-box;}
         html, body{}
@@ -13,13 +13,23 @@
         #content{}
         #footer{}
 	</style>
+
+    <script type="text/javascript">
+
+        Dom.loaded(function(){
+             Dom('.simp')
+                     .html('consectetur <b>libero nam</b> elit!');
+        });
+
+    </script>
+
 </head>
 <body>
 
 <div id="page">
 
     <div id="header">
-        <h2>Test JS <per>script.dom_0.1.0.js</per></h2>
+        <h2>Test JS <per>script.dom</per></h2>
     </div>
 
     <div id="menu">
@@ -72,14 +82,6 @@
 
 </div>
 
-<script type="text/javascript">
 
-    var simp = Dom('.simp').html('consectetur <b>adipisicing</b> elit!');
-
-    console.log(simp);
-
-
-
-</script>
 </body>
 </html>

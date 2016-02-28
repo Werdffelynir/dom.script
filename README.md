@@ -25,4 +25,7 @@ p.css('border','3px solid #000');
 .on = function (eventName, eventFunc, bubble)
 .each = function (func)
 .query = function (selector, from)
+
+Dom.loaded = function (func)
+Dom.isLoaded = function () : bool
 ```
