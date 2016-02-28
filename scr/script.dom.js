@@ -34,6 +34,7 @@
     };
 
     var internal = {}, proto = {
+        version:'0.1.0',
         selector:null,
         elements:[],
         length:0
@@ -297,6 +298,27 @@
             elem = (find) ? [].slice.call(find) : [];
         this._elementsOptions(selector, elem);
         return elem;
+    };
+
+
+    /**
+     * Execute callback function if DOM is loaded
+     * @param callback
+     */
+    proto.documentLoaded = function(callback){
+        if(this.documentIsLoaded()){
+            callback();
+        }else{
+            document.addEventListener('DOMContentLoaded', callback, false);
+        }
+    };
+
+    /**
+     * Check an DOM is loaded
+     * @returns {boolean}
+     */
+    proto.documentIsLoaded = function(){
+        return !!this.query('body');
     };
 
     dom.prototype = proto;
